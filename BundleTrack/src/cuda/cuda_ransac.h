@@ -32,7 +32,6 @@ or implied, of Nghia Ho.
 #include <cuda.h>
 #include "common.h"
 #include "cuda_SimpleMatrixUtil.h"
-#include <cusolverDn.h>
 #include <cuda_runtime_api.h>
 #include <Eigen/Dense>
 #include <curand.h>

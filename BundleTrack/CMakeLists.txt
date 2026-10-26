@@ -43,10 +43,8 @@ if(${CMAKE_CUDA_COMPILER_VERSION} VERSION_LESS "11.0")
 endif()
 
 # Set CUDA architectures based on CUDA version
-if(${CMAKE_CUDA_COMPILER_VERSION} VERSION_GREATER_EQUAL "11.8")
-    set(CMAKE_CUDA_ARCHITECTURES "52;60;61;70;75;80;86;90")
-else()
-    set(CMAKE_CUDA_ARCHITECTURES "52;60;61;70;75;80;86")
+if(NOT CMAKE_CUDA_ARCHITECTURES)
+    set(CMAKE_CUDA_ARCHITECTURES native)
 endif()
 
 # Feature flags
@@ -64,7 +62,7 @@ set(CMAKE_INSTALL_RPATH "${CMAKE_BINARY_DIR}")
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 # Find required packages with version specifications where appropriate
-find_package(Boost 1.65.0 REQUIRED COMPONENTS system program_options serialization)
+find_package(Boost 1.65.0 REQUIRED COMPONENTS system filesystem program_options serialization)
 find_package(PCL 1.8 REQUIRED)
 find_package(Eigen3 3.3 REQUIRED)
 find_package(OpenCV 4.0 REQUIRED)

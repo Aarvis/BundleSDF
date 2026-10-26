@@ -1,0 +1,60 @@
+{
+  "platform": "Ubuntu 24.04.3 / WSL2 x86-64",
+  "native_check": {
+    "status": "passed",
+    "python": "3.10.22",
+    "torch": "2.6.0+cu124",
+    "torch_cuda": "12.4",
+    "kaolin": "0.18.0",
+    "gpu": "NVIDIA RTX 4000 Ada Generation Laptop GPU",
+    "capability": [
+      8,
+      9
+    ],
+    "common": "/home/aarvis/WMAM/BundleSDF/BundleSDF/mycuda/common.cpython-310-x86_64-linux-gnu.so",
+    "my_cpp": "/home/aarvis/WMAM/BundleSDF/BundleSDF/BundleTrack/build/my_cpp.cpython-310-x86_64-linux-gnu.so",
+    "cuda_home": "/home/aarvis/WMAM/BundleSDF/BundleSDF/.native/cuda-12.4",
+    "commit": "ffa67d425240b5b76d2e387a7dd3d3735a7cf1a1",
+    "checks": [
+      "BundleSDF import",
+      "BundleTrack native import",
+      "mycuda import",
+      "OpenCV CUDA descriptor matching",
+      "grid encoder CUDA forward/backward",
+      "Kaolin CUDA octree",
+      "PyTorch3D CUDA transforms"
+    ]
+  },
+  "official_milk_bounded_test": {
+    "frames_processed": 120,
+    "stride": 1,
+    "training_steps_per_update": 50,
+    "start_nerf_keyframes": 3,
+    "keyframe_min_rotation_deg": 2,
+    "global_refinement": false,
+    "elapsed_seconds": 51.553835288999835,
+    "keyframes": 18,
+    "mesh": "/home/aarvis/WMAM/BundleSDF/BundleSDF/.native/runs/milk-smoke-03/online_mesh.obj",
+    "mesh_vertices": 8673,
+    "tracking_results": [
+      {
+        "status": "Status.OTHER",
+        "count": 120
+      }
+    ],
+    "parent_peak_torch_reserved_bytes": 4051697664,
+    "note": "Parent allocator excludes reconstruction child and other GPU processes.",
+    "mesh_faces": 17310,
+    "mesh_extents_metres": [
+      0.20254054,
+      0.24547449,
+      0.19854597000000002
+    ]
+  },
+  "limitations": [
+    "Reduced training steps (50 per update), no global refinement",
+    "No pose-accuracy ground truth evaluation",
+    "No WMAM integration or multi-object runtime validation"
+  ],
+  "installer_replay": "passed"
+}

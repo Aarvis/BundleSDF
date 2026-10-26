@@ -1,0 +1,14 @@
+[
+  {
+    "google_drive_id": "1M-VD35-qdB5Iw-AtbDBCKC7hPolFW9UY",
+    "path": "BundleTrack/LoFTR/weights/outdoor_ds.ckpt",
+    "bytes": 46341978,
+    "sha256": "21f5bec5968178e8bc8b7633441836fe5de4f47d861dd2cd7dc38e271b0479ec"
+  },
+  {
+    "google_drive_id": "1akutk_Vay5zJRMr3hVzZ7s69GT4gxuWN",
+    "path": ".native/data/milk-sample.zip",
+    "bytes": 1277910846,
+    "sha256": "c532732023149c581952ae6fe2b53e02ebee98361555ac3ca998d8aba925e845"
+  }
+]

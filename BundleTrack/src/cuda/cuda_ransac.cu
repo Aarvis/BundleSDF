@@ -1,7 +1,6 @@
 #include "cuda_ransac.h"
 #include <cuda.h>
 #include <cuda_runtime.h>
-#include <cusolverDn.h>
 #include "cudaUtil.h"
 #include "common.h"
 

@@ -30,6 +30,9 @@ PYBIND11_MODULE(my_cpp, m)
         return node[key];
       })
     .def("Scalar", &YAML::Node::Scalar)
+    .def("set_float", [](YAML::Node &node, const std::string &key, double value) {
+        node[key] = value;
+    })
     .def("__repr__", [](const YAML::Node &node) {
         return YAML::Dump(node);
     })

@@ -65,7 +65,8 @@ class LoftrRunner:
     mkpts1 = last_data['mkpts1_f'].cpu().numpy()
     mconf = last_data['mconf'].cpu().numpy()
     pair_ids = last_data['m_bids'].cpu().numpy()
-    logging.info(f"mconf, {mconf.min()} {mconf.max()}")
+    if len(mconf):
+      logging.info(f"mconf, {mconf.min()} {mconf.max()}")
     logging.info(f'pair_ids {pair_ids.shape}')
     corres = np.concatenate((mkpts0.reshape(-1,2),mkpts1.reshape(-1,2),mconf.reshape(-1,1)),axis=-1).reshape(-1,5).astype(np.float32)
 

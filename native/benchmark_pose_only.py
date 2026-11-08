@@ -179,7 +179,7 @@ def main():
     cv2.imwrite(str(args.output / 'preview_input.png'), first_rgb)
     cv2.imwrite(str(args.output / 'preview_output.png'), last_overlay)
     scalar_fields = ['frame_index', 'frame_id', 'source_time_s', 'status', 'valid', 'keyframes',
-                     'load_ms', 'frame_preparation_ms', 'matching_and_pose_ms', 'pose_readout_ms',
+                     'load_ms', 'frame_preparation_ms', 'matching_ms', 'ransac_ms', 'optimization_ms', 'matching_and_pose_ms', 'pose_readout_ms',
                      'tracking_ms', 'pose_available_ms', 'overlay_ms', 'video_submit_ms']
     matrix_fields = [f'T_object_to_camera_{a}{b}' for a in range(4) for b in range(4)]
     with (args.output / 'poses.csv').open('w', newline='') as f:
@@ -206,7 +206,7 @@ def main():
         'subsequent_frames_tracking': stats([r['tracking_ms'] for r in steady]),
         'subsequent_frames_pose_available_including_load': stats([r['pose_available_ms'] for r in steady]),
         'stage_statistics': {key: stats([r[key] for r in steady]) for key in
-            ['load_ms', 'frame_preparation_ms', 'matching_and_pose_ms', 'pose_readout_ms', 'overlay_ms', 'video_submit_ms']},
+            ['load_ms', 'frame_preparation_ms', 'matching_ms', 'ransac_ms', 'optimization_ms', 'matching_and_pose_ms', 'pose_readout_ms', 'overlay_ms', 'video_submit_ms']},
         'tracking_only_throughput_fps': len(rows)/(sum(r['tracking_ms'] for r in rows)/1000),
         'benchmark_wall_seconds_including_videos': benchmark_seconds,
         'benchmark_wall_throughput_fps': len(rows)/benchmark_seconds,
